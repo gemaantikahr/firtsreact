@@ -2,6 +2,12 @@ import React, { Component, Fragment } from 'react';
 import './BlogPost.css';
 import Post from '../../component/post/Post';
 import axios from 'axios';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Card from 'react-bootstrap/Card';
 
 class BlogPost extends Component{
     state={
@@ -56,16 +62,27 @@ class BlogPost extends Component{
     render(){
         return(
             <Fragment>
-                <center><div className="form-input">
-                    <label htmlFor="">Title</label>
-                    <input type="text" name="title" onChange={this.handleFormChange}/>
-                    <label htmlFor="">Description</label>
-                    <input type="text" name="body" onChange={this.handleFormChange}/>
-                    <button className="btn-delete" onClick={this.handleformsubmit}>Add</button>
-                </div>
-                </center>
+                <Container>
+                <Row>
+                    <Col xs={6}>
+                    <Form>
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Title</Form.Label>
+                        <Form.Control type="text" placeholder="Enter Titlte" name="title" onChange={this.handleFormChange} />
+                    </Form.Group>
+
+                    <Form.Group controlId="formBasicPassword">
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control type="text" placeholder="Enter Body" name="body" onChange={this.handleFormChange}/>
+                    </Form.Group>
+                    <Button variant="primary" type="submit" onClick={this.handleformsubmit}>
+                        Save
+                    </Button>
+                    </Form>
+                    </Col>
+                </Row>
+                </Container>
             {
-                
                 this.state.post.map(post=>{
                     return<Post key={post.id} data={post} remove={this.handleremove}/>
                 })
@@ -75,5 +92,6 @@ class BlogPost extends Component{
         )
     }
 }
+
 
 export default BlogPost;
