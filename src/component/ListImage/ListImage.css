@@ -1,0 +1,22 @@
+.cover-yt {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 100%;
+}
+
+.texttitle-p{
+    margin-top: 3px;
+    padding-left: 10px;
+    font-size: 10px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 30px;
+    margin: 20px;
+    width: 20%;
+}
+.containeratas {
+    width: 100%;
+}
